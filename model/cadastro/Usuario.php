@@ -42,6 +42,10 @@ class Usuario {
             return throw  new Exception("Senhas não coincidem");
         }
 
+        if(strlen($senha) < 6) {
+            return throw  new Exception("Senha deve ter no mínimo 6 caracteres");
+        }
+
         $this->senha = $senha;
     }
 }
