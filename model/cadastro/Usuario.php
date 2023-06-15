@@ -4,6 +4,11 @@ class Usuario {
     private $email; 
     private $senha;
 
+    public static function comEmailESenha($email, $senha) {
+        self::setEmail($email);
+        self::$senha = $senha;
+    }
+
     function __construct($email, $senha, $senhaConfirm){
         $this->setEmail($email);
         $this->setSenha($senha, $senhaConfirm);
