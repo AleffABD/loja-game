@@ -5,7 +5,12 @@ class Usuario {
     private $senha;
 
     public static function comEmailESenha($email, $senha) {
-        self::setEmail($email);
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
+            return throw new InvalidArgumentException("Email mal formatado");
+        }
+        
+        self::$email=$email;
         self::$senha = $senha;
     }
 
