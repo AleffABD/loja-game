@@ -8,9 +8,11 @@ $senha = $_POST["senha"];
 
 try{
     $user = new UsuarioLogin($email, $senha);
-
 }catch(InvalidArgumentException $e){
-    header("Location: " . "../../view/auth/login.php");
+    header("Location: " . "../../view/auth/login.php?emailError=" . $e->getMessage());
+    die();
+} catch(Exception $e) {
+    header("Location: " . "../../view/auth/login.php?error=" . $e->getMessage());
     die();
 }
 
@@ -26,7 +28,7 @@ $usuarioDAO=new UsuarioDAO($readDB);
 try {
     $usuarioDAO->logaUsuario($user);
 } catch(Exception $e) {
-    header("Location: " . "../../view/auth/login.php?invalidEmail=" . $e->getMessage());
+    header("Location: " . "../../view/auth/login.php?error=" . $e->getMessage());
     die();
 }
 
