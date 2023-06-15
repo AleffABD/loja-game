@@ -10,21 +10,21 @@
 <body>
     <div class="container">
         <div class="bloco--cadastro">
-            <form>
+            <form method="POST" action="../../controller/auth/cadastro.php">
                 <h2>Cadastro</h2>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" name='email' class="form-control" placeholder="Insira o seu email" id="email">
+                    <input type="email" required name='email' class="form-control" placeholder="Insira o seu email" id="email">
                 </div>
 
                 <div class="form-group mt-2">
                     <label for="senha">Senha</label>
-                    <input type="password" name='senha' class="form-control" placeholder="Insira uma senha" id="senha">
+                    <input type="password" required name='senha' class="form-control" placeholder="Insira uma senha" id="senha">
                 </div>
 
                 <div class="form-group mt-2">
                     <label for="senha-confirm">Confirme senha</label>
-                    <input type="password" name='senha_confirm' class="form-control" placeholder="Confirme a sua senha" id="senha-confirm">
+                    <input type="password" required name='senha_confirm' class="form-control" placeholder="Confirme a sua senha" id="senha-confirm">
                 </div>
 
                 <button type="submit" class="btn btn-success mt-2">Cadastrar</button>
@@ -33,4 +33,13 @@
 
     </div>
 </body>
+<?php 
+    if(isset($_GET["invalidEmail"])) {
+        echo "<script>alert('" . strip_tags($_GET["invalidEmail"]) . "')</script>";
+    }
+
+    if(isset($_GET["invalidConfirm"])) {
+        echo "<script>alert('" . strip_tags($_GET["invalidConfirm"]) . "')</script>";
+    }
+?>
 </html>
