@@ -11,6 +11,8 @@
     <title>Games</title>
 </head>
 <body>
+    <?php require_once "../components/header.php"?>
+
     <div class="container">
         <div class="bg-white rounded mt-3 p-3">
         <form action="../../controller/auth/login.php" method="post">
@@ -26,6 +28,7 @@
             </div>
             <button type="submit" class="btn btn-primary mt-2">Logar</button>
         </form>
+        <p>Não possui cadastro? <a href="./cadastro.php">Cadastrar</a></p>
         </div>
     </div>
     <?php

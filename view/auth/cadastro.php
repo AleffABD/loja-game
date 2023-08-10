@@ -11,6 +11,8 @@
     <title>Games</title>
 </head>
 <body>
+    <?php require_once "../components/header.php"?>
+
     <div class="container">
         <div class="bloco--cadastro">
             <form method="POST" action="../../controller/auth/cadastro.php">
@@ -32,6 +34,7 @@
 
                 <button type="submit" class="btn btn-success mt-2">Cadastrar</button>
             </form>
+            <p>Já possui cadastro? <a href="./login.php">Entrar</a></p>
         </div>
         <?php 
             if(isset($_GET["invalidEmail"])) {
